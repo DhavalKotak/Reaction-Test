@@ -1,0 +1,22 @@
+html,body{
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: 'Staatliches';
+}
+.container-fluid{
+  padding: 10%;
+  background: #007bff;
+  height: 100%;
+  vertical-align: middle;
+
+}
+.container{
+  font-size: 9vw;
+}
+button{
+  background: yellow;
+  border: 1px solid black;
+  font-size: 3vw;
+}
