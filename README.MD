@@ -1,5 +1,7 @@
 # Reaction Test
 
+Play [Here](https://dhavalkotak.github.io/Reaction-Test)
+
 ### Introduction
 
 So I made a web application in which you can measure your reaction time.
