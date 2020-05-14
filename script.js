@@ -8,7 +8,8 @@ var reactionTime = new Array(5);
 var attempt = 5;
 var sum = 0;
 var isWaiting = 1;
-var timer;
+var shootTimer;
+var earlyTimer;
 
 //displaying the Average reaction time of the user
 function retry() {
@@ -24,24 +25,25 @@ function retry() {
 }
 //check for early shot from the user otherwise calculate and display reaction time
 function display(timeend, timestart) {
-  let diff = timeend - timestart;
   if (isWaiting == 0) {
       isWaiting = 2;
+      let diff = timeend - timestart;
       reactionTime[attempt - 1] = diff;
       main.style.background = "purple";
       head.innerHTML = "Reaction Time : " + reactionTime[attempt - 1];
       attempt--;
       if (attempt > 0) {
-        setTimeout(start , 1200);
+        setTimeout(start , 1500);
       }else {
-        setTimeout(retry, 1200);
+        setTimeout(retry, 1500);
       }
   } else if(isWaiting == 1){
       main.onmousedown = function(){ display(); };
+      clearTimeout(shootTimer);
+      clearTimeout(earlyTimer);
+      earlyTimer = setTimeout(start, 1500);
       main.style.background = "orange";
       head.innerHTML = "Too Excited? Try again";
-      clearTimeout(timer);
-      setTimeout(start, 1200);
   }
 }
 //here user has to shoot(green screen)
@@ -63,5 +65,5 @@ function start() {
   head.innerHTML = "Wait For Green Colour";
   isWaiting = 1;
   timeInterval = Math.floor((Math.random() *1700) + 750);
-  timer = setTimeout(shoot, timeInterval);
+  shootTimer = setTimeout(shoot, timeInterval);
 }
