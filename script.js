@@ -2,6 +2,7 @@
 var main = document.getElementById("board");
 var head = document.getElementById("head");
 var button = document.getElementById("button");
+var star = document.getElementById("star");
 var timeInterval;
 var timeEnd;
 var reactionTime = new Array(5);
@@ -17,6 +18,17 @@ function retry() {
     sum += reactionTime[i];
   }
   var avg = sum / 5;
+  if (avg <= 100) {
+    star.innerHTML = "&#9733; &#9733; &#9733; &#9733; &#9733;";
+  }else if (avg <= 200) {
+    star.innerHTML = "&#9733; &#9733; &#9733; &#9733; &#9734;";
+  }else if (avg <= 300) {
+    star.innerHTML = "&#9733; &#9733; &#9733; &#9734; &#9734;";
+  }else if (avg <= 400) {
+    star.innerHTML = "&#9733; &#9733; &#9734; &#9734; &#9734;";
+  }else {
+    star.innerHTML = "&#9733; &#9734; &#9734; &#9734; &#9734;";
+  }
   main.style.background = "blue";
   head.innerHTML = "Average Time : " + avg;
   main.onmousedown = function(){
