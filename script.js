@@ -30,7 +30,7 @@ function retry() {
     star.innerHTML = "&#9733; &#9734; &#9734; &#9734; &#9734;";
   }
   main.style.background = "blue";
-  head.innerHTML = "Average Time : " + avg;
+  head.innerHTML = "Average Time : " + avg + " ms";
   main.onmousedown = function(){
     location.reload();
   };
@@ -42,7 +42,7 @@ function display(timeend, timestart) {
       let diff = timeend - timestart;
       reactionTime[attempt - 1] = diff;
       main.style.background = "purple";
-      head.innerHTML = "Reaction Time : " + reactionTime[attempt - 1];
+      head.innerHTML = "Reaction Time : " + reactionTime[attempt - 1] + " ms";
       attempt--;
       if (attempt > 0) {
         setTimeout(start , 1500);
@@ -76,6 +76,6 @@ function start() {
   main.style.background = "red";
   head.innerHTML = "Wait For Green Colour";
   isWaiting = 1;
-  timeInterval = Math.floor((Math.random() *1700) + 750);
+  timeInterval = Math.floor((Math.random() *2100) + 1100);
   shootTimer = setTimeout(shoot, timeInterval);
 }
